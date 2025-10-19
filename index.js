@@ -12,9 +12,6 @@ const io = new Server(PORT, {
   },
 });
 
-console.log(`Signalling server starting (env: ${process.env.NODE_ENV || 'development'}) on port ${PORT}`);
-console.log(`CORS allowed origin: ${CORS_ORIGIN}`);
-
 io.on("connection", (socket) => {
   // Join a room
   socket.on("join-room", ({ roomId }) => {
@@ -66,5 +63,3 @@ io.on("connection", (socket) => {
     }
   });
 });
-
-console.log(`Signalling server running on port ${PORT}`);
