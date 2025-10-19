@@ -12,7 +12,9 @@ const io = new Server(PORT, {
   },
 });
 
+
 io.on("connection", (socket) => {
+
   // Join a room
   socket.on("join-room", ({ roomId }) => {
     if (!roomId) return;
@@ -57,6 +59,7 @@ io.on("connection", (socket) => {
 
   // Clean up on disconnect and notify peers
   socket.on("disconnect", (reason) => {
+    // socket.rooms contains all rooms this socket belongs to (including a room with socket.id)
     for (const roomId of socket.rooms) {
       if (roomId === socket.id) continue;
       socket.to(roomId).emit("peer-left", { peerId: socket.id });
