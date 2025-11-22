@@ -23,11 +23,11 @@ git clone https://github.com/Avneesh0404/server.git
 cd server
 npm install
 ```
-###2️⃣ Create .env
+### 2️⃣ Create .env
 ```bash
 PORT=8000
 CORS_ORIGIN=http://localhost:5173
 ```
-###3️⃣ Start server
+### 3️⃣ Start server
 ```bash
 npm start
